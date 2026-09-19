@@ -1,0 +1,6 @@
+{
+  "name": "H DESTOCKAGE — Grossiste Sneakers & Déstockage Palettes",
+  "description": "Plateforme officielle de vente en gros et déstockage de sneakers neuves par palettes — H DESTOCKAGE.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

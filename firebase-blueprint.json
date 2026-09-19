@@ -1,0 +1,71 @@
+{
+  "entities": {
+    "palletOrder": {
+      "title": "PalletOrder",
+      "description": "Order for sneaker pallets with shipping and payment status",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 64 },
+        "palletCount": { "type": "number" },
+        "palletUnitPrice": { "type": "number" },
+        "merchandiseSubtotal": { "type": "number" },
+        "deliveryFee": { "type": "number" },
+        "totalAmount": { "type": "number" },
+        "status": { "type": "string", "maxLength": 64 },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "palletCount", "palletUnitPrice", "merchandiseSubtotal", "deliveryFee", "totalAmount", "status", "createdAt"]
+    },
+    "shippingConfig": {
+      "title": "ShippingConfig",
+      "description": "Configurable delivery fee rules and parameters",
+      "type": "object",
+      "properties": {
+        "baseFee": { "type": "number" },
+        "remoteFeeSupplement": { "type": "number" },
+        "palletUnitPrice": { "type": "number" }
+      },
+      "required": ["baseFee", "remoteFeeSupplement", "palletUnitPrice"]
+    },
+    "product": {
+      "title": "Product",
+      "description": "Wholesale sneaker model",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 64 },
+        "brand": { "type": "string", "maxLength": 64 },
+        "name": { "type": "string", "maxLength": 128 },
+        "status": { "type": "string", "maxLength": 32 }
+      },
+      "required": ["id", "brand", "name", "status"]
+    },
+    "brand": {
+      "title": "Brand",
+      "description": "Sneaker brand partnership",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 64 },
+        "name": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "name"]
+    }
+  },
+  "firestore": {
+    "/palletOrders/{orderId}": {
+      "schema": "palletOrder",
+      "description": "Wholesale pallet orders"
+    },
+    "/settings/{settingId}": {
+      "schema": "shippingConfig",
+      "description": "Global administration settings"
+    },
+    "/products/{productId}": {
+      "schema": "product",
+      "description": "Wholesale sneaker catalog products"
+    },
+    "/brands/{brandId}": {
+      "schema": "brand",
+      "description": "Contracted wholesale brands"
+    }
+  }
+}
